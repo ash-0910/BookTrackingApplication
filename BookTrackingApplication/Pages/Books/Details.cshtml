@@ -35,3 +35,21 @@
     <a asp-page="./Edit" asp-route-id="@Model.Book.ISBN">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
+
+@section Schema
+{
+
+    <script type="application/ld+json">
+
+        {
+            "@@context":"https://schema.org",
+            "type":"Book",
+            "isbn":"@Model.Book.ISBN",
+            "name":"@Model.Book.Title",
+            "genre":"@Model.Book.Category",
+            "author":"@Model.Book.Author"
+
+        }
+    </script>
+
+}

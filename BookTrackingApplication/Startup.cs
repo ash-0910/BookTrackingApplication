@@ -46,7 +46,13 @@ namespace BookTrackingApplication
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    ctx.Context.Response.Headers.Add("Cache-Control", "31536000");
+                } 
+            });
 
             app.UseRouting();
 
